@@ -1,0 +1,10 @@
+version: '3'
+services:
+  claude-engineer:
+    build: .
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    stdin_open: true  # docker run -i
+    tty: true         # docker run -t

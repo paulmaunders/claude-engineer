@@ -40,11 +40,28 @@ Claude Engineer is an interactive command-line interface (CLI) that leverages th
 
 ## Usage
 
+### Running with Python
+
 Run the main script to start the Claude Engineer interface:
 
 ```
 python main.py
 ```
+
+### Running with Docker
+
+1. Ensure you have Docker and Docker Compose installed on your system.
+
+2. Run the following command:
+   ```
+   docker-compose run --rm claude-engineer
+   ```
+
+   This command runs the container in interactive mode and removes it after use.
+
+3. To stop the container, type `exit` in the Claude Engineer interface or press Ctrl+C in the terminal.
+
+### Interacting with Claude Engineer
 
 Once started, you can interact with Claude Engineer by typing your queries or commands. Some example interactions:
 
