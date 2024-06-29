@@ -1,14 +1,23 @@
-# Use an official Python runtime as the base image
-FROM python:3.9-slim
+FROM python:3.9
 
-# Set the working directory in the container
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
-
-# Install any needed packages specified in requirements.txt
+# Copy requirements and install dependencies
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Run the script when the container launches
-CMD ["python", "main.py"]
+# Copy application files
+COPY main.py .
+COPY .env .
+COPY entrypoint.sh .
+
+# Create workspace and set permissions
+RUN mkdir workspace && \
+    chown -R 1000:1000 /app && \
+    chmod +x entrypoint.sh
+
+# Switch to non-root user
+USER 1000:1000
+
+# Set the entrypoint
+ENTRYPOINT ["/bin/bash", "/app/entrypoint.sh"]
