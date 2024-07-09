@@ -16,6 +16,11 @@ RUN mkdir workspace && \
     chown -R 1000:1000 /app && \
     chmod +x entrypoint.sh
 
+# Set environment variables for color support
+ENV TERM=xterm-256color
+ENV PYTHONIOENCODING=UTF-8
+ENV PYTHONUNBUFFERED=1
+
 # Switch to non-root user
 USER 1000:1000
 

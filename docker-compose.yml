@@ -7,6 +7,9 @@ services:
       - .env
     stdin_open: true
     tty: true
+    environment:
+      - TERM=xterm-256color
+      - FORCE_COLOR=1
     user: 1000:1000
     working_dir: /app
     read_only: true
